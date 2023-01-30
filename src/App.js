@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
 import './App.css';
-
+import DetailSong from './components/DetailSong';
+import ListSong from './components/ListSong';
+import Navbar from './components/Navbar';
+import Playing from './components/Playing';
+import { Store } from './redux/Store';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" >
+      <Provider store={Store}>
+      <Navbar/>
+        <div className='grid grid-cols-3 bg-slate-700 h-screen-navbar-player overflow-hidden'>
+          <DetailSong/>
+          <ListSong/>
+        </div>
+        <Playing/>
+      </Provider>
     </div>
   );
 }
